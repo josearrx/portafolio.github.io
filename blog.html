@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Blog</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        /*background-image: url("./IMG/FONDO_DOBY.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;*/
+        background-color: #c9d5fd;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: filter 0.3s ease-in-out;
+      }
+      header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-image: url("./IMG/FONDO.jpg");
+        background-size: cover;
+        background-position: center;
+        color: #f2f1f0;
+        padding: 30px;
+        text-align: center;
+      }
+      .profile-pic {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      }
+      .profile-pic:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      }
+      .name {
+        font-size: 28px;
+        font-weight: 600;
+        margin-top: 10px;
+      }
+      .title {
+        font-size: 18px;
+        font-family: "Montserrat", sans-serif;
+      }
+      nav.menu {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        background-color: white;
+        color: #003673;
+        padding: 15px 0;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .menu-item {
+        font-weight: 600;
+        cursor: pointer;
+        padding: 10px 15px;
+        transition: all 0.3s ease-in-out;
+      }
+      .menu-item:hover {
+        color: white;
+        background-color: #003673;
+        border-radius: 5px;
+      }
+      .home-content,
+      .projects {
+        padding: 30px;
+        background-color: white;
+        margin: 20px auto;
+        border-radius: 8px;
+        width: 90%; /* Usa un porcentaje para mayor flexibilidad */
+        max-width: 1100px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      
+      .projects {
+        display: none;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+      .project {
+        background-color: white;
+        border: 1px solid #e7e7e7;
+        border-radius: 5px;
+        padding: 20px;
+        width: 220px;
+        text-align: center;
+        transition: transform 0.3s ease-in-out;
+      }
+      .project:hover {
+        transform: scale(1.05);
+      }
+      .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background-color: #d1dbff;
+        color: #003673;
+        border-radius: 50%;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+      }
+      .scroll-to-top:hover {
+        background-color: #005f8d;
+      }
+
+      /* Animación de entrada */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animated {
+        animation: fadeIn 1s ease-out;
+        transition: opacity 0.5s ease-in-out;
+      }
+      /* Animación de desvanecimiento */
+
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+      footer {
+        text-align: center;
+        background-color: #003673;
+        color: white;
+        padding: 15px;
+        font-size: 14px;
+        margin-top: auto;
+      }
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .container .column {
+        flex: 1;
+        min-width: 250px;
+      }
+
+      .container ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .container li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .container img {
+        border-radius: 8px;
+        margin-right: 10px;
+      }
+      .url {
+        color: #003673; text-decoration: none; font-weight: bold
+      }
+      /* Estilos para el mensaje flotante */
+/* Estilos para el mensaje flotante */
+.mode-message {
+  position: fixed;
+  top: 20px; /* Cambiado de bottom a top */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #28a745; /* Verde cuando se activa */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  display: none; /* Inicialmente oculto */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: all 0.5s ease;
+}
+
+/* Animación para que el mensaje aparezca desde arriba */
+.mode-message.show {
+  display: block;
+  animation: slideDown 0.5s ease-in-out;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateX(-50%) translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Estilo para cuando el modo nocturno está activo */
+.dark-mode .mode-message {
+  background-color: #dc3545; /* Rojo cuando se desactiva el modo nocturno */
+}
+
+
+/* Estilos para el botón de modo nocturno */
+.mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-size: 18px;
+  color: #003673;
+  transition: all 0.3s ease;
+}
+
+/* Modo noche */
+.dark-mode {
+  background-color: #121212;
+  color: #f2f2f2;
+}
+body.dark-mode {
+  
+  /*background-color: #222 !important;
+  background-image: url("./IMG/FONDO_DOBY_BLACK.jpg") !important;*/
+  background-color: #15193e;
+}
+
+
+.dark-mode header {
+  background-color: #222;
+  background-image: url("./IMG/FONDO_BLACK.jpg");
+  background-size: cover;
+        background-position: center;
+}
+
+.dark-mode .home-content,
+.dark-mode .projects,
+.dark-mode .project {
+  background-color: #333;
+  color: white;
+}
+
+.dark-mode .menu {
+  background-color: #222;
+  color: #f2f2f2;
+}
+
+.dark-mode .menu-item:hover {
+  background-color: #444;
+}
+
+.dark-mode .url{
+  color: #719aec;
+}
+
+.dark-mode .mode-toggle{
+  background-color: #444;
+}
+
+.dark-mode .footer{
+  background-color: #444;
+}
+
+
+    </style>
+  </head>
+  <body>
+    <header class="animated">
+      <img src="./IMG/C1.JPG" alt="Foto de perfil" class="profile-pic" />
+      <div class="name" id="name"></div>
+      <div class="title" id="title"></div>
+    </header>
+
+    <nav class="menu">
+      <div class="menu-item" onclick="showHome()">Sobre Mi</div>
+      <div class="menu-item" onclick="showProjects()">Proyectos</div>
+      <div class="menu-item">
+        <a
+          href="./CV.pdf"
+          download
+          target="_blank"
+          style="text-decoration: none; color: inherit"
+        >
+          📄 Descargar CV
+        </a>
+      </div>
+    </nav>
+<!-- Botón de modo nocturno -->
+<!-- Botón de modo nocturno -->
+<button class="mode-toggle" onclick="toggleDarkMode()">🌞</button>
+<div id="mode-message" class="mode-message"></div>
+
+
+      
+    <div class="home-content animated" id="homeContent">
+      <!--
+      <h2>Bienvenido a mi blog</h2>
+      <p>Aquí encontrarás información sobre mis proyectos y más.</p>
+      -->
+      <h2>Sobre mí</h2>
+
+      <p>
+        Soy Ingeniero en Tecnologías de la Información egresado de la
+        <a
+          href="https://www.uptlax.edu.mx/"
+          target="_blank"
+          class="url" id="url"
+        >
+          Universidad Politécnica de Tlaxcala (UPTx).
+        </a>
+        Cuento con experiencia en desarrollo de software, administración de
+        bases de datos y redes de computadoras. Destaco por mi capacidad de
+        aprendizaje rápido, resolución de problemas y trabajo en equipo.
+      </p>
+
+      <p>
+        Me apasiona la tecnología y quiero ganar más experiencia para enfrentar
+        nuevos desafíos en el campo tecnológico. Estoy siempre dispuesto a
+        aprender nuevas herramientas y mejorar mis habilidades, con el objetivo
+        de contribuir a proyectos y crecer profesionalmente.
+      </p>
+
+      <div class="container" style="margin-top: 20px">
+        <div class="column">
+          <h3>Habilidades</h3>
+          <ul>
+            <li>
+              <img src="./IMG/comunicacion.png" alt="POO" width="50" />
+              <span>Comunicación</span>
+            </li>
+            <li>
+              <img src="./IMG/equipo.png" alt="Desarrollo Web" width="50" />
+              <span>Trabajo en equipo</span>
+            </li>
+            <li>
+              <img
+                src="./IMG/adaptacion.png"
+                alt="Aplicaciones Móviles"
+                width="50"
+              />
+              <span>Adaptabilidad</span>
+            </li>
+            <li>
+              <img
+                src="./IMG/resolucion_de_problemas.png"
+                alt="Bases de Datos"
+                width="50"
+              />
+              <span>Resolución de problemas</span>
+            </li>
+            <li>
+              <img src="./IMG/pensamiento_critico.png" alt="Redes" width="50" />
+              <span>Pensamiento crítico</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="column">
+          <h3>Conocimientos Clave</h3>
+          <ul>
+            <li>
+              <img src="./IMG/poo.png" alt="POO" width="50" />
+              <span>Programación Orientada a Objetos: Java, C++, C</span>
+            </li>
+            <li>
+              <img src="./IMG/web.png" alt="Desarrollo Web" width="50" />
+              <span>Desarrollo Web: HTML, CSS, JavaScript, PHP</span>
+            </li>
+            <li>
+              <img
+                src="./IMG/movil.png"
+                alt="Aplicaciones Móviles"
+                width="50"
+              />
+              <span
+                >Desarrollo de Aplicaciones Móviles: Java (Android Studio)</span
+              >
+            </li>
+            <li>
+              <img src="./IMG/bd.png" alt="Bases de Datos" width="50" />
+              <span>Bases de Datos: MySQL, SQL</span>
+            </li>
+            <li>
+              <img src="./IMG/redes.png" alt="Redes" width="50" />
+              <span>Redes y Mantenimiento de Equipos</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 30px">
+        Actualmente estoy cursando un curso en ORACLE sobre
+        <a
+          href="https://mylearn.oracle.com/ou/learning-path/oracle-sql-explorer/79918"
+          target="_blank"
+          class="url" id="url"
+        >
+          Oracle SQL Explorer.
+        </a>
+      </h3>
+
+      <p>
+        Estoy aprendiendo SQL, una de las habilidades más demandadas, y
+        trabajando para obtener la Explorer Badge. Este curso es ideal para
+        cualquiera que trabaje con bases de datos, como desarrolladores,
+        administradores, diseñadores de bases de datos y equipos de soporte.
+      </p>
+
+      <b>A lo largo del curso, estoy viendo temas clave como:</b>
+      <ul>
+        <li>
+          Introducción a SQL y conceptos de bases de datos relacionales (RDBMS)
+        </li>
+        <li>El esquema de Recursos Humanos (HR Schema)</li>
+        <li>Escritura de consultas SQL</li>
+        <li>Expresiones aritméticas y alias de columna</li>
+        <li>Concatenación de texto y el uso de comillas alternativas</li>
+        <li>La palabra clave DISTINCT y el comando DESCRIBE</li>
+      </ul>
+
+      <p>
+        Cada tema me ayuda a mejorar mis habilidades en bases de datos y a
+        escribir consultas más eficientes. ¡Estoy disfrutando mucho el proceso y
+        emocionado por todo lo que viene!
+      </p>
+
+      <div style="text-align: center; margin: 20px 0">
+        <img src="./IMG/sql_oracle.png" alt="Oracle SQL" width="300" />
+      </div>
+
+      <h3 style="margin-top: 30px">
+        Actualmente estoy tomando el curso de SQL Server en
+        <a
+          href="https://app.edutin.com/category"
+          target="_blank"
+          class="url" id="url"
+        >
+          Edutin Academy.
+        </a>
+      </h3>
+
+      <p>
+        Este curso está diseñado para ingenieros y desarrolladores que ya tienen
+        conocimientos en bases de datos relacionales y quieren profundizar en
+        las capacidades avanzadas de SQL Server.
+      </p>
+
+      <b
+        >A lo largo del curso, estoy realizando actividades prácticas donde
+        aprendo a:</b
+      >
+      <ul>
+        <li>Crear y manipular bases de datos</li>
+        <li>Ejecutar consultas básicas y avanzadas</li>
+        <li>Diseñar vistas, procedimientos almacenados y triggers</li>
+      </ul>
+
+      <p>
+        Me está resultando muy útil para mejorar mis habilidades en bases de
+        datos y seguir creciendo profesionalmente en el mundo del desarrollo.
+        ¡Estoy disfrutando mucho el proceso!
+      </p>
+
+      <div style="text-align: center; margin: 20px 0">
+        <img src="./IMG/sql_server.jpg" alt="SQL Server" width="300" />
+      </div>
+
+      <h3 style="margin-top: 30px">Experiencia Profesional</h3>
+      <p>
+        <b>
+          <a
+            href="https://prod.4ce.com.mx/"
+            target="_blank"
+            class="url" id="url"
+          >
+            4CE EXPERTOS EN SISTEMAS
+          </a>
+        </b>
+        - Desarrollador de SQL y Soporte Técnico / Sep - Dicc (2024)
+      <ul><li>Practicas profesionales</li></ul>
+      </p>
+
+      <div style="text-align: center; margin: 20px 0">
+        <img src="./IMG/4ce.png" alt="4CE" width="300" />
+      </div>
+      <br />
+    </div>
+
+    <section class="projects animated" id="projectsSection">
+      <div class="project">
+        <h3><b>Pagina Web</b></h3>
+        <p>Restaurante - Bar <br>"El Arca"</p>
+        <a class= "url" class="verProyecto" onclick="verProyecto(1)">Ver Proyecto</a>
+      </div>
+      <!--<div class="project">
+        <h3>Proyecto 2</h3>
+        <a class= "url" class="verProyecto" onclick="verProyecto(2)">Ver Proyecto</a>
+      </div>
+      <div class="project">
+        <h3>Proyecto 3</h3>
+        <a class= "url" class="verProyecto" onclick="verProyecto(3)">Ver Proyecto</a>
+      </div>-->
+    </section>
+
+    <div class="home-content animated" id="homeContent1" style="display: none;">
+      <h2>Restaurante - Bar "El Arca"</h2><br>
+      <p>
+          Este proyecto fue realizado como parte de una evaluación estudiantil en la universidad, con el objetivo de 
+          crear una página web para un restaurante bar llamado El Arca. La idea era desarrollar una plataforma interactiva 
+          y funcional que mejorara la experiencia del cliente y permitiera una gestión sencilla de reservas y menús.
+      </p>
+      <p>
+          A continuación, explico cómo funcionaba la página cuando estaba alojada en un host con base de datos externa, 
+          así como las limitaciones que surgen al subirla sin una base de datos.
+      </p>
+  
+      <h3>Funcionalidades Completas en el Host con Base de Datos Externa:</h3>
+      <ul>
+          <li><strong>Registro de Usuarios:</strong> Permite registro con correo, nombre, teléfono y contraseña. Validación de datos.</li>
+          <li><strong>Recuperación de Contraseña:</strong> Envío de instrucciones para restablecer la contraseña.</li>
+          <li><strong>Inicio de Sesión:</strong> Acceso con correo y contraseña, validación de credenciales.</li>
+          <li><strong>Menú Principal:</strong> Carrusel de imágenes del restaurante y su información.</li>
+          <li><strong>Menú Interactivo:</strong> Categorías con productos, precios e imágenes ilustrativas.</li>
+          <li><strong>Reservaciones:</strong> Formulario con selección de zona, fecha y hora, y confirmación por correo.</li>
+          <li><strong>Perfil de Usuario:</strong> Información personal y reservaciones activas.</li>
+          <li><strong>Cerrar Sesión:</strong> Opción para salir y volver a la pantalla de inicio.</li>
+      </ul>
+  
+      <h3>Limitaciones al Subir el Proyecto a un Host sin Base de Datos:</h3>
+      <ul>
+          <li><strong>Registro de Usuarios:</strong> No se pueden crear nuevas cuentas ni validar correos.</li>
+          <li><strong>Recuperación de Contraseña:</strong> No disponible sin base de datos.</li>
+          <li><strong>Acceso con Credenciales:</strong> Solo con datos preconfigurados.</li>
+          <li><strong>Menú Principal y Reservaciones:</strong> Sin confirmaciones por correo.</li>
+          <li><strong>Perfil de Usuario:</strong> No se pueden almacenar ni actualizar datos.</li>
+          <li><strong>Otras Funcionalidades:</strong> Sin almacenamiento dinámico ni interacciones avanzadas.</li>
+      </ul>
+  
+      <p>
+          En resumen, este proyecto demostró cómo una página web con base de datos puede mejorar la experiencia del usuario, 
+          permitiendo una gestión completa de clientes, reservas y menús. Sin embargo, al alojarlo sin base de datos, 
+          muchas funcionalidades se ven limitadas, reduciendo su interactividad.
+      </p>
+  
+      <a class="url" onclick="cerrarProyecto(1)">Cerrar Proyecto</a>
+  </div>
+  
+
+    <!--<div class="home-content animated" id="homeContent2" style="display: none;">
+      <p>Aquí encontrarás información sobre mi Proyecto 2.</p>
+      <a class="url" onclick="cerrarProyecto(2)">Cerrar Proyecto</a>
+    </div>
+
+    <div class="home-content animated" id="homeContent3" style="display: none;">
+      <p>Aquí encontrarás información sobre mi Proyecto 3.</p>
+      <a class="url" onclick="cerrarProyecto(3)">Cerrar Proyecto</a>
+    </div>
+    -->
+    <div class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">
+      &#8593;
+    </div>
+
+    <script>
+
+     let isNightMode = false;
+const modeToggle = document.querySelector(".mode-toggle");
+const modeMessage = document.getElementById("mode-message");
+
+// Función para alternar entre el modo nocturno y el claro
+function toggleDarkMode() {
+  isNightMode = !isNightMode;
+  if (isNightMode) {
+    document.body.classList.add("dark-mode");
+    modeToggle.textContent = "🌙"; // Cambia a sol
+    showMessage("Modo Noche Activado");
+  } else {
+    document.body.classList.remove("dark-mode");
+    modeToggle.textContent = "🌞"; // Cambia a luna
+    showMessage("Modo Noche Desactivado");
+  }
+}
+
+// Función para mostrar el mensaje flotante
+function showMessage(message) {
+  modeMessage.textContent = message;
+  modeMessage.classList.add("show");
+
+  // Ocultar el mensaje después de 3 segundos
+  setTimeout(() => {
+    modeMessage.classList.remove("show");
+  }, 3000);
+}
+
+
+// Función para mostrar el proyecto
+function verProyecto(proyectoId) {
+  const projectsSection = document.getElementById('projectsSection');
+  const proyectoContent = document.getElementById('homeContent' + proyectoId);
+
+  // Aplicar animación de desvanecimiento total y suave
+  projectsSection.style.transition = 'all 0.5s ease';
+  projectsSection.style.opacity = '0';
+  projectsSection.style.visibility = 'hidden';
+  projectsSection.style.height = '0px';
+  projectsSection.style.padding = '0px';
+  projectsSection.style.margin = '0px';
+  projectsSection.style.overflow = 'hidden'; // Evita que se vea el contorno
+
+  setTimeout(() => {
+    proyectoContent.style.display = 'block';
+    proyectoContent.classList.remove('fade-out');
+    proyectoContent.classList.add('fade-in');
+  }, 500);
+}
+
+// Función para cerrar el proyecto y restaurar la sección de proyectos
+function cerrarProyecto(proyectoId) {
+  const projectsSection = document.getElementById('projectsSection');
+  const proyectoContent = document.getElementById('homeContent' + proyectoId);
+
+  proyectoContent.classList.remove('fade-in');
+  proyectoContent.classList.add('fade-out');
+
+  setTimeout(() => {
+    proyectoContent.style.display = 'none';
+
+    // Restaurar la sección de proyectos suavemente
+    projectsSection.style.transition = 'all 0.5s ease';
+    projectsSection.style.opacity = '1';
+    projectsSection.style.visibility = 'visible';
+    projectsSection.style.height = 'auto';
+    projectsSection.style.padding = ''; // Restaurar padding original
+    projectsSection.style.margin = ''; // Restaurar margen original
+    projectsSection.style.overflow = ''; // Restaurar overflow
+  }, 500);
+}
+
+
+
+      function showHome() {
+        document.getElementById("homeContent").style.display = "block";
+        document.getElementById("projectsSection").style.display = "none";
+      }
+
+      function showProjects() {
+        document.getElementById("homeContent").style.display = "none";
+        document.getElementById("projectsSection").style.display = "flex";
+      }
+
+      window.onscroll = function () {
+        const scrollToTop = document.getElementById("scrollToTop");
+        if (document.documentElement.scrollTop > 100) {
+          scrollToTop.style.display = "flex";
+        } else {
+          scrollToTop.style.display = "none";
+        }
+      };
+
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      function typeWriter(element, text, delay) {
+        let index = 0;
+        element.innerHTML = ""; // Limpiar el contenido
+
+        function type() {
+          if (index < text.length) {
+            element.innerHTML += text.charAt(index);
+            index++;
+            setTimeout(type, delay);
+          }
+        }
+
+        type();
+      }
+
+      window.onload = function () {
+        typeWriter(
+          document.getElementById("name"),
+          "José Antonio Rodríguez Romano",
+          100
+        );
+        typeWriter(
+          document.getElementById("title"),
+          "Ingeniero en Tecnologías de la Información",
+          100
+        );
+      };
+    </script>
+  </body>
+  <footer style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 20px;" class="footer">
+    <p>&copy; 2025 José Antonio Rodríguez Romano. Todos los derechos reservados.</p>
+    
+    <div style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap; justify-content: center;">
+      <a><p><strong>Contacto:</strong></p></a>
+      <a href="mailto:josearr.uptx@gmail.com" style="color: white; text-decoration: none;">
+        josearr.uptx@gmail.com 
+      </a>
+
+      <!-- Tabulación usando margin-left -->
+      <a href="https://www.linkedin.com/in/jose-antonio-rodriguez-romano-46305631a/" style="margin-left: 10px;">
+        <img src="./IMG/linkedin.png" alt="LinkedIn" width="24" height="24" style="vertical-align: middle;">
+      </a>
+  
+      <a href="https://github.com/tu-usuario">
+        <img src="./IMG/github.png" alt="GitHub" width="24" height="24" style="vertical-align: middle;">
+      </a>
+  
+      <a href="https://www.instagram.com/https.xjr/?__pwa=1" target="_blank">
+        <img src="./IMG/ing.png" alt="Instagram" width="24" height="24" style="vertical-align: middle;">
+      </a>
+    </div>
+  </footer>
+  
+</html>
