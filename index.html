@@ -228,6 +228,61 @@
   background-color: #dc3545; /* Rojo cuando se desactiva el modo nocturno */
 }
 
+.certificados-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+  gap: 20px; /* Espacio entre los elementos */
+  margin-top: 20px; /* Espacio superior */
+}
+
+.certificado-item {
+  background-color: #f9f9f9c1; /* Color de fondo para cada certificado */
+  border: 1px solid #e7e7e7; /* Borde */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px; /* Espaciado interno */
+  text-align: center; /* Centrar texto */
+}
+
+.certificado-item img {
+  width: 100%; /* Ancho completo */
+  height: auto; /* Mantener la proporción */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre la imagen */
+  border-radius: 5px; /* Bordes redondeados para la imagen */
+}
+
+/* Estilos para el modal */
+.modal {
+  display: none; /* Ocultar el modal por defecto */
+  position: fixed; /* Fijo en la pantalla */
+  z-index: 1000; /* Por encima de otros elementos */
+  left: 0;
+  top: 0;
+  width: 100%; /* Ancho completo */
+  height: 100%; /* Alto completo */
+  overflow: auto; /* Habilitar desplazamiento si es necesario */
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro con opacidad */
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centra el modal */
+  width: 150%;
+  max-width: 700px;
+  border-radius: 10px;
+}
+
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón de cerrar */
+}
 
 /* Estilos para el botón de modo nocturno */
 .mode-toggle {
@@ -293,6 +348,10 @@ body.dark-mode {
   background-color: #444;
 }
 
+.dark-mode .certificado-item {
+ color: #003673;
+}
+
 
     </style>
   </head>
@@ -306,6 +365,7 @@ body.dark-mode {
     <nav class="menu">
       <div class="menu-item" onclick="showHome()">Sobre Mi</div>
       <div class="menu-item" onclick="showProjects()">Proyectos</div>
+      <div class="menu-item" onclick="showCertificados()">Certificados</div>
       <div class="menu-item">
         <a
           href="./CV.pdf"
@@ -588,6 +648,78 @@ body.dark-mode {
       <a class="url" onclick="cerrarProyecto(3)">Cerrar Proyecto</a>
     </div>
     -->
+
+    <div class="home-content animated" id="certificadosContent" style="display: none;">
+      <h2>Certificados</h2>
+      <p>Aquí puedes incluir información sobre tus certificados obtenidos.</p>
+      
+      <div class="certificados-grid">
+        <div class="certificado-item">
+          <strong>Introducción a Redes</strong>
+          <img src="./PDF/Introduccion_a_redes.jpg" alt="Certificado 1" onclick="openModal(this.src)" />
+          <div class="menu">
+            <div class="menu-item">
+              <a
+                href="./PDF/Jose_Antonio-Introduccion_certificate.pdf"
+                download
+                target="_blank"
+                style="text-decoration: none; color: inherit"
+              >
+                📄 Descargar Certificado
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="certificado-item">
+          <strong>Switching, Routing and Wireless Essentials</strong>
+          <img src="./PDF/Switching_Routing_and_Wireless_Essentials.jpg" alt="Certificado 2" onclick="openModal(this.src)" />
+          <div class="menu">
+            <div class="menu-item">
+              <a
+                href="./PDF/Jose_Antonio-Switching Routin_certificate.pdf"
+                download
+                target="_blank"
+                style="text-decoration: none; color: inherit"
+              >
+                📄 Descargar Certificado
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="certificado-item">
+          <strong>Redes Empresariales, Seguridad y Automatización</strong>
+          <img src="./PDF/redes_empresariales.jpg" alt="Certificado 3" onclick="openModal(this.src)" />
+          <div class="menu">
+            <div class="menu-item">
+              <a
+                href="./PDF/Jose_Antonio_certificate3.pdf"
+                download
+                target="_blank"
+                style="text-decoration: none; color: inherit"
+              >
+                📄 Descargar Certificado
+              </a>
+            </div>
+          </div>
+        </div>
+        <!--
+        <div class="certificado-item">
+          <strong>Certificado 4:</strong>
+          <img src="./ruta/a/tu/certificado4.jpg" alt="Certificado 4" onclick="openModal(this.src)" />
+        </div>
+        -->
+
+        <!-- Agrega más certificados según sea necesario -->
+      </div>
+    
+      <!-- Modal para mostrar la imagen ampliada -->
+      <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage" />
+      </div>
+    </div>
+
+
     <div class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">
       &#8593;
     </div>
@@ -669,15 +801,35 @@ function cerrarProyecto(proyectoId) {
 
 
 
-      function showHome() {
-        document.getElementById("homeContent").style.display = "block";
-        document.getElementById("projectsSection").style.display = "none";
-      }
+function showHome() {
+  document.getElementById("homeContent").style.display = "block";
+  document.getElementById("projectsSection").style.display = "none"; // Ocultar proyectos
+  document.getElementById("certificadosContent").style.display = "none"; // Ocultar certificados
+}
 
-      function showProjects() {
-        document.getElementById("homeContent").style.display = "none";
-        document.getElementById("projectsSection").style.display = "flex";
-      }
+function showProjects() {
+  document.getElementById("homeContent").style.display = "none"; // Ocultar sobre mí
+  document.getElementById("projectsSection").style.display = "flex"; // Mostrar proyectos
+  document.getElementById("certificadosContent").style.display = "none"; // Ocultar certificados
+}
+
+function showCertificados() {
+  document.getElementById("homeContent").style.display = "none"; // Ocultar sobre mí
+  document.getElementById("projectsSection").style.display = "none"; // Ocultar proyectos
+  document.getElementById("certificadosContent").style.display = "block"; // Mostrar certificados
+}
+
+function openModal(src) {
+  const modal = document.getElementById("imageModal");
+  const modalImage = document.getElementById("modalImage");
+  modal.style.display = "block"; // Mostrar el modal
+  modalImage.src = src; // Establecer la fuente de la imagen en el modal
+}
+
+function closeModal() {
+  const modal = document.getElementById("imageModal");
+  modal.style.display = "none"; // Ocultar el modal
+}
 
       window.onscroll = function () {
         const scrollToTop = document.getElementById("scrollToTop");
@@ -738,10 +890,9 @@ function cerrarProyecto(proyectoId) {
         <img src="./IMG/linkedin.png" alt="LinkedIn" width="24" height="24" style="vertical-align: middle;">
       </a>
   
-      <!--<a href="https://github.com/tu-usuario">
+      <a href="https://github.com/tu-usuario">
         <img src="./IMG/github.png" alt="GitHub" width="24" height="24" style="vertical-align: middle;">
       </a>
-      -->
   
       <a href="https://www.instagram.com/https.xjr/?__pwa=1" target="_blank">
         <img src="./IMG/ing.png" alt="Instagram" width="24" height="24" style="vertical-align: middle;">
