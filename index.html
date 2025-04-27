@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jose Antonio Rodriguez Romano</title>
-    <link rel="icon" type="image/png" href="./icono.png" />
+    <link rel="icon" type="image/png" href="./IMG/icono.png" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@500&display=swap"
       rel="stylesheet"
@@ -565,8 +565,8 @@
           </ul>
         </div>
       </div>
-      <br>
-      <h3 class="fade titulo">
+
+      <h3 class="fade titulo" style="margin-bottom: 10px">
         Información Personal
       </h3>
       <!------------------------------------------------------------------->
@@ -725,7 +725,7 @@
         cualquiera que trabaje con bases de datos, como desarrolladores,
         administradores, diseñadores de bases de datos y equipos de soporte.
       </p>
-      
+
       <b class="fade">A lo largo del curso, estoy viendo temas clave como:</b>
       <ul class="fade">
         <li>
@@ -743,7 +743,7 @@
         escribir consultas más eficientes. ¡Estoy disfrutando mucho el proceso y
         emocionado por todo lo que viene!
       </p>
-      
+
       <div style="text-align: center; margin: 20px 0" class="fade">
         <img src="./IMG/sql_oracle.png" alt="Oracle SQL" width="300" />
       </div>
@@ -788,7 +788,7 @@
     </div>
 
     <section class="projects animated" id="projectsSection">
-      <h3 class="titulo" style="margin-bottom: 10px">Proyectos</h3>
+      <h3 class="fade titulo" style="margin-bottom: 10px">Proyectos</h3>
       <br />
       <div class="project">
         <h3><b>Pagina Web</b></h3>
@@ -812,12 +812,12 @@
       id="homeContent1"
       style="display: none"
     >
-      <h3 class="titulo" style="margin-bottom: 10px">Proyectos</h3>
+      <h3 class="fade titulo" style="margin-bottom: 10px">Proyectos</h3>
       <br />
       <br />
       <div class="container" style="margin-top: 20px" class="fade">
         <div class="column">
-          <h3 class="resume-title url">Restaurante - Bar "El Arca"</h3>
+          <h3 class="resume-title url fade">Restaurante - Bar "El Arca"</h3>
           <br />
           <div class="resume-item pb-0">
             <h4 style="margin-bottom: 10px" class="fade">Desarrollador</h4>
@@ -854,7 +854,7 @@
                 disponible en un entorno local.
               </li>
             </ul>
-            <!--<div style="text-align: center">
+            <div style="text-align: center">
               <a
                 href="https://prod.4ce.com.mx/"
                 target="_blank"
@@ -865,7 +865,7 @@
               <div style="text-align: center; margin: 20px 0" class="fade">
                 <img src="./IMG/4ce.png" alt="4CE" width="300" />
               </div>
-            </div>-->
+            </div>
           </div>
         </div>
       </div>
@@ -890,11 +890,12 @@
       id="certificadosContent"
       style="display: none"
     >
-      <h3 class="titulo" style="margin-bottom: 10px">Certificados</h3>
+      <h3 class="fade titulo" style="margin-bottom: 10px">Certificados</h3>
       <!--<p>Aquí puedes incluir información sobre tus certificados obtenidos.</p>-->
 
       <div class="certificados-grid">
-        <div class="certificado-item">
+        <!-- CERTIFICACION -->
+        <div class="certificado-item fade">
           <strong>Introducción a Redes</strong>
           <img
             src="./PDF/Introduccion_a_redes.jpg"
@@ -916,7 +917,7 @@
           </div>
         </div>
         <!-- CERTIFICACION -->
-        <div class="certificado-item">
+        <div class="certificado-item fade">
           <strong>Switching, Routing and Wireless Essentials</strong>
           <img
             src="./PDF/Switching_Routing_and_Wireless_Essentials.jpg"
@@ -1002,6 +1003,52 @@
               </a>
             </div>
           </div>
+        </div>
+        <!-- CERTIFICACION -->
+        <div class="certificado-item fade">
+          <strong>Introducción a programación con python</strong>
+          <img
+            src="./PDF/python.jpg"
+            alt="Certificado 6"
+            onclick="openModal(this.src)"
+          />
+          <div class="menu fade">
+            <div class="menu-item fade">
+              <a
+                href="./PDF/508_josearr.uptx@gmail.com.pdf"
+                download
+                target="_blank"
+                style="text-decoration: none; color: inherit"
+                class="fade"
+              >
+                📄 Descargar Certificado
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- CERTIFICACION -->
+        <div class="certificado-item fade">
+          <strong>INSIGNIA - ORACLE SQL EXPLORER</strong>
+          <img
+            src="./PDF/SQL_EXPLORER.png"
+            alt="Certificado 7"
+            onclick="openModal(this.src)"
+          />
+          <!--
+          <div class="menu fade">
+            <div class="menu-item fade">
+              <a
+                href="./PDF/Jose_Antonio_Certificate_SQL-SERVER.pdf"
+                download
+                target="_blank"
+                style="text-decoration: none; color: inherit"
+                class="fade"
+              >
+                📄 Descargar Certificado
+              </a>
+            </div>
+          </div>
+          -->
         </div>
         <!--
         <div class="certificado-item">
@@ -1329,10 +1376,10 @@
           style="vertical-align: middle"
         />
       </a>
-      <!-- SEPARACION
+      <!-- SEPARACION -->
       <a style="margin-left: 10px"> | </a>
 
-      <!-- LINK A INSTAGRAM 
+      <!-- LINK A INSTAGRAM -->
       <a href="https://www.instagram.com/https.xjr/?__pwa=1" target="_blank">
         <img
           src="./IMG/ing.png"
@@ -1342,7 +1389,7 @@
           style="vertical-align: middle"
         />
       </a>
-      <a href="https://github.com/tu-usuario">
+      <!-- <a href="https://github.com/tu-usuario">
         <img src="./IMG/github.png" alt="GitHub" width="24" height="24" style="vertical-align: middle;">
       </a>
       -->
