@@ -435,6 +435,61 @@
       .dark-mode .titulo::after {
         background-color: white;
       }
+      /* Contenedor general */
+      .column.colum-barra {
+        max-width: 500px;
+        margin: auto;
+      }
+
+      /* Listado */
+      .colum-barra ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .colum-barra li {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .colum-barra li img {
+        margin-bottom: 5px;
+      }
+
+      .colum-barra li span {
+        font-weight: 500;
+        margin-bottom: 5px;
+      }
+
+      /* Barra de progreso */
+      .colum-barra .barra {
+        width: 100%;
+        height: 22px; /* un poco más alta para que se note mejor */
+        background-color: #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+        position: relative;
+      }
+
+      .colum-barra .progreso {
+        height: 100%;
+        border-radius: 10px;
+        background-color: #4caf50; /* Verde */
+        transition: width 0.8s ease-in-out;
+        display: flex;
+        align-items: center; /* centra verticalmente el texto */
+        justify-content: center; /* centra horizontalmente el texto */
+      }
+
+      .colum-barra .porcentaje {
+        color: #ffffff; /* blanco */
+        font-weight: bold; /* negrita */
+        font-size: 13px;
+        letter-spacing: 0.5px;
+      }
     </style>
   </head>
   <body>
@@ -482,7 +537,9 @@
         >
           Universidad Politécnica de Tlaxcala (UPTx).
         </a>
-        Con experiencia como desarrollador PL/SQL, consultor técnico de Oracle, uso de Oracle APEX, bases de datos SQL, implementación y soporte de sistemas ERP.
+        Con experiencia como desarrollador PL/SQL, consultor técnico de Oracle,
+        uso de Oracle APEX, bases de datos SQL, implementación y soporte de
+        sistemas ERP.
       </p>
 
       <p class="fade">
@@ -538,10 +595,26 @@
             <li class="fade">
               <img src="./IMG/poo.png" alt="POO" width="50" />
               <span>Programación Orientada a Objetos: Java, C++, C</span>
+              <br />
+              <div class="column colum-barra">
+                <div class="barra">
+                  <div class="progreso" style="width: 80%">
+                    <span class="porcentaje">80%</span>
+                  </div>
+                </div>
+              </div>
             </li>
             <li class="fade">
               <img src="./IMG/web.png" alt="Desarrollo Web" width="50" />
               <span>Desarrollo Web: HTML, CSS, JavaScript, PHP</span>
+              <br />
+              <div class="column colum-barra">
+                <div class="barra">
+                  <div class="progreso" style="width: 75%">
+                    <span class="porcentaje">75%</span>
+                  </div>
+                </div>
+              </div>
             </li>
             <li class="fade">
               <img
@@ -552,14 +625,38 @@
               <span
                 >Desarrollo de Aplicaciones Móviles: Java (Android Studio)</span
               >
+              <br />
+              <div class="column colum-barra">
+                <div class="barra">
+                  <div class="progreso" style="width: 70%">
+                    <span class="porcentaje">70%</span>
+                  </div>
+                </div>
+              </div>
             </li>
             <li class="fade">
               <img src="./IMG/bd.png" alt="Bases de Datos" width="50" />
               <span>Bases de Datos: MySQL, SQL</span>
+              <br />
+              <div class="column colum-barra">
+                <div class="barra">
+                  <div class="progreso" style="width: 85%">
+                    <span class="porcentaje">85%</span>
+                  </div>
+                </div>
+              </div>
             </li>
             <li class="fade">
               <img src="./IMG/redes.png" alt="Redes" width="50" />
               <span>Redes y Mantenimiento de Equipos</span>
+              <br />
+              <div class="column colum-barra">
+                <div class="barra">
+                  <div class="progreso" style="width: 70%">
+                    <span class="porcentaje">70%</span>
+                  </div>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
@@ -684,7 +781,7 @@
                 EKS SOLUTIONS
               </a>
               <div style="text-align: center; margin: 20px 0" class="fade">
-                <img src="./IMG/EKS.jpeg" alt="4CE" width="300" />
+                <img src="./IMG/EKS.jpeg" alt="4CE" width="180" />
               </div>
             </div>
           </div>
