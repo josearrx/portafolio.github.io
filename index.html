@@ -501,7 +501,9 @@
 
     <nav class="menu">
       <div class="menu-item" onclick="showHome()">Sobre Mi</div>
-      <div class="menu-item" onclick="showProjects()">Proyectos</div>
+      <div class="menu-item" onclick="showProjects()">
+        Proyectos y Cartas de Recomendación
+      </div>
       <div class="menu-item" onclick="showCertificados()">Certificados</div>
       <div class="menu-item">
         <a
@@ -950,7 +952,9 @@
     </div>
 
     <section class="projects animated" id="projectsSection">
-      <h3 class="fade titulo" style="margin-bottom: 10px">Proyectos</h3>
+      <h3 class="titulo" style="margin-bottom: 10px">
+        Proyectos y Cartas de Recomendación
+      </h3>
       <br />
       <div class="project">
         <h3><b>Pagina Web</b></h3>
@@ -959,11 +963,14 @@
           >Ver Información
         </a>
       </div>
-      <!--<div class="project">
-        <h3>Proyecto 2</h3>
-        <a class= "url" class="verProyecto" onclick="verProyecto(2)">Ver Proyecto</a>
-      </div>
       <div class="project">
+        <h3>Carta de Recomendación</h3>
+        <p>EKS SOLUTIONS</p>
+        <a class="url" class="verProyecto" onclick="verProyecto(2)"
+          >Ver Información</a
+        >
+      </div>
+      <!--<div class="project">
         <h3>Proyecto 3</h3>
         <a class= "url" class="verProyecto" onclick="verProyecto(3)">Ver Proyecto</a>
       </div>-->
@@ -974,12 +981,12 @@
       id="homeContent1"
       style="display: none"
     >
-      <h3 class="fade titulo" style="margin-bottom: 10px">Proyectos</h3>
+      <h3 class="titulo" style="margin-bottom: 10px">Proyecto</h3>
       <br />
       <br />
       <div class="container" style="margin-top: 20px" class="fade">
         <div class="column">
-          <h3 class="resume-title url fade">Restaurante - Bar "El Arca"</h3>
+          <h3 class="resume-title url">Restaurante - Bar "El Arca"</h3>
           <br />
           <div class="resume-item pb-0">
             <h4 style="margin-bottom: 10px" class="fade">Desarrollador</h4>
@@ -1016,6 +1023,7 @@
                 disponible en un entorno local.
               </li>
             </ul>
+            <!--
             <div style="text-align: center">
               <a
                 href="https://prod.4ce.com.mx/"
@@ -1028,11 +1036,72 @@
                 <img src="./IMG/4ce.png" alt="4CE" width="300" />
               </div>
             </div>
+            -->
           </div>
         </div>
       </div>
 
       <a class="url fade" onclick="cerrarProyecto(1)">Cerrar Proyecto</a>
+    </div>
+
+    <!--  -->
+
+    <div
+      class="home-content animated fade"
+      id="homeContent2"
+      style="display: none"
+    >
+      <h3 class="titulo" style="margin-bottom: 10px">Carta de Recomendación</h3>
+      <br />
+      <br />
+      <div
+        class="container"
+        style="margin-top: 20px; text-align: center"
+        class="fade"
+      >
+        <div class="column">
+          <h3 class="resume-title url">
+            Enterprise of Knowledge in Information Technology Solutions S.A de
+            C.V
+          </h3>
+          <div style="text-align: center">
+            <a
+              href="https://eks-solutions.com/"
+              target="_blank"
+              class="url fade"
+              id="url"
+            >
+              EKS SOLUTIONS
+            </a>
+            <div style="text-align: center; margin: 20px 0" class="fade">
+              <img src="./IMG/EKS.jpeg" alt="4CE" width="180" />
+            </div>
+          </div>
+          <br />
+          <div class="resume-item pb-0">
+            <h4 style="margin-bottom: 10px" class="fade">
+              Trainee técnico Oracle Cloud
+            </h4>
+            <!--<p><em class="fade"> Universidad Politécnica de Tlaxcala </em></p>-->
+            <br />
+            <ul class="fade with-bullets">
+              <li>
+                <iframe
+                  src="./PDF/Carta_de_Recomendación_Jose_Atonio_Rodriguez_EKS.pdf"
+                  width="100%"
+                  height="900px"
+                  style="border: none"
+                >
+                </iframe>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <a class="url fade" onclick="cerrarProyecto(2)"
+        >Cerrar Carta de Recomendación</a
+      >
     </div>
 
     <!--<div class="home-content animated" id="homeContent2" style="display: none;">
@@ -1052,12 +1121,12 @@
       id="certificadosContent"
       style="display: none"
     >
-      <h3 class="fade titulo" style="margin-bottom: 10px">Certificados</h3>
+      <h3 class="titulo" style="margin-bottom: 10px">Certificados</h3>
       <!--<p>Aquí puedes incluir información sobre tus certificados obtenidos.</p>-->
 
       <div class="certificados-grid">
         <!-- CERTIFICACION -->
-        <div class="certificado-item fade">
+        <div class="certificado-item">
           <strong>Introducción a Redes</strong>
           <img
             src="./PDF/Introduccion_a_redes.jpg"
@@ -1079,7 +1148,7 @@
                 📄 Descargar Certificado
               </a>
             </div>
-            <div class="menu-item fade" style="flex: 1; text-align: center">
+            <div class="menu-item" style="flex: 1; text-align: center">
               <a
                 href="https://www.credly.com/badges/3b548ed5-f7e8-4bf9-8bab-4a8e41ae5580/public_url"
                 download
@@ -1093,7 +1162,7 @@
           </div>
         </div>
         <!-- CERTIFICACION -->
-        <div class="certificado-item fade">
+        <div class="certificado-item">
           <strong>Switching, Routing and Wireless Essentials</strong>
           <img
             src="./PDF/Switching_Routing_and_Wireless_Essentials.jpg"
