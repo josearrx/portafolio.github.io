@@ -529,7 +529,7 @@
         }
 
         .project {
-          width: 90%;
+          width: 91%;
           max-width: 350px;
         }
 
@@ -723,9 +723,11 @@
       </h3>
       <!------------------------------------------------------------------->
       <div class="container" style="margin-top: 20px" class="fade">
+        <!-- COLUMNA 1 -->
         <div class="column">
           <h3 class="resume-title url fade">Experiencia Profesional</h3>
           <br />
+          <!---->
           <div class="resume-item pb-0">
             <h4 style="margin-bottom: 10px" class="fade">
               Consultor técnico de Oracle
@@ -841,11 +843,76 @@
               </div>
             </div>
           </div>
-        </div>
+          <!-- COLUMNA 2 -->
+          <div class="resume-item pb-0">
+            <h4 style="margin-bottom: 10px" class="fade">Desarrollador Java</h4>
+            <p><em class="fade"> HITSS MÉXICO </em></p>
+            <h5 class="fechas fade" style="margin-bottom: 10px">
+              Agosto 2025 - Octubre 2025
+            </h5>
+            <br />
+            <ul class="fade with-bullets">
+              <li class="fade">
+                Desarrollo de ejercicios y soluciones en Java aplicando
+                estructuras avanzadas y Programación Orientada a Objetos para
+                fortalecer la lógica y el diseño del código.
+              </li>
+              <li class="fade">
+                Creación y administración de bases de datos en MySQL Workbench.
+              </li>
+              <li class="fade">
+                Creación de tablas, relaciones para un uso optimo.
+              </li>
+              <li class="fade">
+                Configuración de la conexión entre Spring Boot y MySQL
+                utilizando Spring Data JPA para habilitar operaciones CRUD de
+                manera eficiente.
+              </li>
+              <li class="fade">
+                Implementación de controladores, servicios, repositorios y
+                entidades bajo arquitectura en capas, asegurando organización y
+                mantenibilidad del código.
+              </li>
+              <li class="fade">
+                Aplicación de validaciones y manejo de excepciones
+                personalizadas para mejorar la estabilidad y confiabilidad de la
+                aplicación.
+              </li>
+              <li class="fade">
+                Ejecución de pruebas funcionales para validar la comunicación
+                entre la API y la base de datos, garantizando el comportamiento
+                esperado de las operaciones.
+              </li>
+              <li class="fade">
+                Implementación de Spring Security y JWT para gestionar
+                autenticación, autorización y roles (USER y ADMIN) con permisos
+                diferenciados.
+              </li>
+              <li class="fade">
+                Documentación de APIs con Swagger/OpenAPI y validación de
+                endpoints mediante Postman para asegurar claridad y correcta
+                operación del servicio.
+              </li>
+            </ul>
+            <div style="text-align: center">
+              <a
+                href="https://www.hitss.com/"
+                target="_blank"
+                class="url fade"
+                id="url"
+              >
+                HITSS MÉXICO
+              </a>
+              <div style="text-align: center; margin: 20px 0" class="fade">
+                <img src="./IMG/hitss.png" alt="HITSS" width="180" />
+              </div>
+            </div>
+          </div>
 
-        <div class="column">
-          <h3 class="resume-title url fade">Experiencia Informativa</h3>
+          <!---->
           <br />
+          <h3 class="resume-title url fade">Experiencia Informativa</h3>
+
           <div class="resume-item pb-0">
             <h4 style="margin-bottom: 10px" class="fade">
               Practicante de Monitoreo Satelital y Análisis de Datos
@@ -871,7 +938,6 @@
               </li>
             </ul>
           </div>
-          <br />
           <!---->
           <div class="resume-item pb-0">
             <h4 style="margin-bottom: 10px" class="fade">
@@ -897,10 +963,10 @@
               </li>
             </ul>
           </div>
+          <!-- ELEMENTO 3 COLUMNA 2 -->
           <br />
-          <!---->
           <h3 class="resume-title url fade">Educación</h3>
-          <br />
+
           <div class="resume-item pb-0">
             <h4 style="margin-bottom: 10px" class="fade">Programación.</h4>
             <p>
@@ -921,8 +987,8 @@
             </p>
             <h5 class="fechas fade" style="margin-bottom: 10px">2021 - 2025</h5>
           </div>
-          <!---->
         </div>
+        <!---->
       </div>
       <!--
       <h3 style="margin-top: 30px" class="fade">
@@ -1006,28 +1072,45 @@
     </div>
 
     <section class="projects animated" id="projectsSection">
-      <h3 class="titulo" style="margin-bottom: 10px">
-        Proyectos y Cartas de Recomendación
-      </h3>
-      <br />
-      <div class="project">
-        <h3><b>Pagina Web</b></h3>
-        <p>Restaurante - Bar <br />"El Arca"</p>
-        <a class="url" class="verProyecto" onclick="verProyecto(1)"
-          >Ver Información
-        </a>
+      <div class="container" style="margin-top: 20px" class="fade">
+        <h3 class="titulo" style="margin-bottom: 20px; line-height: 1.4">
+          Proyectos <br />
+          <span style="font-size: 16px">y</span> <br />
+          Cartas de Recomendación
+        </h3>
+        <br />
+
+        <div class="project">
+          <h3><b>Pagina Web</b></h3>
+          <p>Restaurante - Bar <br />"El Arca"</p>
+          <a class="url verProyecto" onclick="verProyecto(1)"
+            >Ver Información
+          </a>
+        </div>
+
+        <div class="project">
+          <h3>Carta de Recomendación</h3>
+          <p>EKS SOLUTIONS</p>
+          <a class="url verProyecto" onclick="verProyecto(2)"
+            >Ver Información</a
+          >
+        </div>
+
+        <div class="project">
+          <h3>Gestor de Tareas</h3>
+          <a class="url verProyecto" onclick="verProyecto(3)"
+            >Ver Información</a
+          >
+        </div>
+
+        <div class="project">
+          <h3>Constancia</h3>
+          <p>HITSS MÉXICO</p>
+          <a class="url verProyecto" onclick="verProyecto(4)"
+            >Ver Información</a
+          >
+        </div>
       </div>
-      <div class="project">
-        <h3>Carta de Recomendación</h3>
-        <p>EKS SOLUTIONS</p>
-        <a class="url" class="verProyecto" onclick="verProyecto(2)"
-          >Ver Información</a
-        >
-      </div>
-      <!--<div class="project">
-        <h3>Proyecto 3</h3>
-        <a class= "url" class="verProyecto" onclick="verProyecto(3)">Ver Proyecto</a>
-      </div>-->
     </section>
 
     <div
@@ -1116,9 +1199,8 @@
         <div class="column">
           <h3 class="resume-title url">
             Enterprise of Knowledge in Information Technology Solutions S.A de
-            C.V <br> (EKS SOLUTIONS)
+            C.V
           </h3>
-          <!--
           <div style="text-align: center">
             <a
               href="https://eks-solutions.com/"
@@ -1132,9 +1214,7 @@
               <img src="./IMG/EKS.jpeg" alt="4CE" width="180" />
             </div>
           </div>
-          
           <br />
-          -->
           <div class="resume-item pb-0">
             <h4 style="margin-bottom: 10px" class="fade">
               Trainee técnico Oracle Cloud
@@ -1161,6 +1241,119 @@
       >
     </div>
 
+    <!--  -->
+    <div
+      class="home-content animated fade"
+      id="homeContent3"
+      style="display: none"
+    >
+      <h3 class="titulo" style="margin-bottom: 10px">Proyecto</h3>
+      <br />
+      <br />
+      <div class="container" style="margin-top: 20px" class="fade">
+        <div class="column">
+          <h3 class="resume-title url">Gestor de Tareas (Task Manager)</h3>
+          <br />
+          <div class="resume-item pb-0">
+            <h4 style="margin-bottom: 10px" class="fade">
+              Desarrollador Bakend
+            </h4>
+            <p><em class="fade"> HITSS MÉXICO </em></p>
+            <br />
+            <ul class="fade with-bullets">
+              <li class="fade">
+                Desarrollé una aplicación backend en Spring Boot para la gestión
+                de tareas personales, implementando un CRUD completo mediante
+                controladores, servicios, repositorios y entidades (Task, User,
+                Role).
+              </li>
+              <li class="fade">
+                Configuré la base de datos MySQL y utilicé Spring Data JPA para
+                las operaciones principales, añadiendo validaciones y manejo de
+                excepciones. Implementé seguridad con Spring Security y JWT,
+                creando roles (USER y ADMIN) con permisos diferenciados: USER
+                puede crear y visualizar tareas; ADMIN puede ejecutar todo el
+                CRUD.
+              </li>
+              <li class="fade">
+                La API incluyó endpoints organizados para listar, crear,
+                actualizar y eliminar tareas, y fue documentada con Swagger. Se
+                realizaron pruebas con Postman y se añadieron evidencias en el
+                <a
+                  href="https://github.com/josearrx/Task-Manager-API---Jose-Antonio-Rodriguez-Romano"
+                  target="_blank"
+                  class="url fade"
+                  id="url"
+                >
+                  repositorio GitHub </a
+                >, aplicando programación funcional, colecciones y buenas
+                prácticas aprendidas durante el curso.
+              </li>
+            </ul>
+            <div style="text-align: center; margin: 20px 0" class="fade">
+              <img src="./IMG/task3.png" alt="TASK" width="800" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a class="url" onclick="cerrarProyecto(3)">Cerrar Proyecto</a>
+    </div>
+
+    <!--  -->
+
+    <div
+      class="home-content animated fade"
+      id="homeContent4"
+      style="display: none"
+    >
+      <h3 class="titulo" style="margin-bottom: 10px">Constancia</h3>
+      <br />
+      <br />
+      <div
+        class="container"
+        style="margin-top: 20px; text-align: center"
+        class="fade"
+      >
+        <div class="column">
+          <h3 class="resume-title url">HITSS MÉXICO (Global Hitss)</h3>
+          <div style="text-align: center">
+            <a
+              href="https://www.hitss.com/"
+              target="_blank"
+              class="url fade"
+              id="url"
+            >
+              HITSS MÉXICO
+            </a>
+            <div style="text-align: center; margin: 20px 0" class="fade">
+              <img src="./IMG/hitss.png" alt="4CE" width="180" />
+            </div>
+          </div>
+          <br />
+          <div class="resume-item pb-0">
+            <h4 style="margin-bottom: 10px" class="fade">
+              Desarrollador Java Backend
+            </h4>
+            <!--<p><em class="fade"> Universidad Politécnica de Tlaxcala </em></p>-->
+            <br />
+            <ul class="fade with-bullets">
+              <li>
+                <iframe
+                  src="./PDF/Constancia_Jose_Atonio_Rodriguez_Hitss.jpg"
+                  width="100%"
+                  height="900px"
+                  style="border: none"
+                >
+                </iframe>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <a class="url" onclick="cerrarProyecto(4)">Cerrar Constancia</a>
+    </div>
     <!--<div class="home-content animated" id="homeContent2" style="display: none;">
       <p>Aquí encontrarás información sobre mi Proyecto 2.</p>
       <a class="url" onclick="cerrarProyecto(2)">Cerrar Proyecto</a>
@@ -2052,7 +2245,7 @@
       <a style="margin-left: 10px"> | </a>
 
       <!-- INFORMACION DE TELEFONO -->
-      <a style="margin-left: 10px"> (+52) 2462123052 </a>
+      <a style="margin-left: 10px"> (+52) 2413760444 </a>
 
       <!-- SEPARACION -->
       <a style="margin-left: 10px"> | </a>
