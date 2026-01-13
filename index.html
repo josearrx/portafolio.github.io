@@ -347,7 +347,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%); /* Centra el modal */
-        width: 150%;
+        /*width: 150%; */
         max-width: 700px;
         border-radius: 10px;
       }
@@ -544,39 +544,29 @@
           border: none;
         }
       }
-      /* ===== MOBILE FIXES ===== */
-img {
-  max-width: 100%;
-  height: auto;
-}
+      /* ==== FIX REAL PARA MOVIL (SIN CAMBIAR DISEÑO) ==== */
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
 
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    align-items: stretch;
-  }
+      * {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+      }
 
-  .column {
-    width: 100%;
-  }
+      .modal-content {
+        width: 90% !important;
+        max-width: 700px;
+      }
 
-  .certificados-grid {
-    grid-template-columns: 1fr;
-  }
-
-  nav.menu {
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .modal-content {
-    width: 90%;
-  }
-
-  iframe {
-    height: 70vh;
-  }
-}
+      @media (max-width: 768px) {
+        .container ul li {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
     </style>
   </head>
   <body>
@@ -2229,7 +2219,7 @@ img {
       window.onload = function () {
         typeWriter(
           document.getElementById("name"),
-          "Jose Antonio Rodriguez Romano",
+          "José Antonio Rodríguez Romano",
           100
         );
         typeWriter(
@@ -2251,7 +2241,7 @@ img {
     class="footer"
   >
     <p>
-      &copy; 2026 José Antonio Rodríguez Romano. Todos los derechos reservados.
+      &copy; 2025 José Antonio Rodríguez Romano. Todos los derechos reservados.
     </p>
 
     <div
