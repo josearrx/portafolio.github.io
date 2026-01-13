@@ -544,6 +544,39 @@
           border: none;
         }
       }
+      /* ===== MOBILE FIXES ===== */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .column {
+    width: 100%;
+  }
+
+  .certificados-grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav.menu {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
+
+  iframe {
+    height: 70vh;
+  }
+}
     </style>
   </head>
   <body>
